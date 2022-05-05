@@ -10,40 +10,21 @@ const Cards = () => {
     setPlan(e);
     setTimeout(() => {
       setGap(false);
-    }, 2000);
+    }, 1000);
   };
 
   const handlePlans = () => {
     setPlan("");
-
     setGap(true);
   };
 
   return (
     <CardsComponent className={`d-flex w-100 ${gap && "gap-3"}`}>
-      <div
-        className={`starter plan ${
-          plan && plan === "Professional" && "noFocus"
-        }`}
-      >
-        <Card
-          title="Starter"
-          select={() => handleCard("Starter")}
-          plans={handlePlans}
-          plan={plan}
-        />
+      <div className={`starter plan ${plan === "Professional" && "hide"}`}>
+        <Card title="Starter" select={() => handleCard("Starter")} plans={handlePlans} plan={plan} />
       </div>
-      <div
-        className={`professional plan ${
-          plan && plan === "Starter" && "noFocus"
-        }`}
-      >
-        <Card
-          title="Professional"
-          select={() => handleCard("Professional")}
-          plans={handlePlans}
-          plan={plan}
-        />
+      <div className={`professional plan ${plan === "Starter" && "hide"}`}>
+        <Card title="Professional" select={() => handleCard("Professional")} plans={handlePlans} plan={plan} />
       </div>
     </CardsComponent>
   );

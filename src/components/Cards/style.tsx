@@ -4,20 +4,33 @@ export const CardsComponent = styled.article`
   height: 100%;
   width: 100%;
   & .plan {
-    transition: all 2s ease;
+    transition: all 1s ease-in-out;
     width: 100%;
+    animation: inFocus 1s ease-in-out backwards;
   }
 
-  & .noFocus {
-    opacity: 0;
-    animation: noFocus 0.5s ease-in-out 2s forwards;
+  & .hide {
+    animation: noFocus 1s ease-in-out forwards;
+  }
+
+  @keyframes inFocus {
+    from {
+      opacity: 0;
+      width: 0;
+    }
+    to {
+      opacity: 1;
+      width: 100%;
+    }
   }
 
   @keyframes noFocus {
     from {
+      opacity: 1;
       width: 100%;
     }
     to {
+      opacity: 0;
       width: 0;
     }
   }
